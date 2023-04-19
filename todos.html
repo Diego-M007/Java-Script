@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes Diego JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function cubo(numero) {
+            return numero * numero * numero;
+        }
+
+        function calcularCubo() {
+            var numero = document.getElementById("numero").value;
+            var cuboDoNumero = cubo(numero);
+            var resultadoElement = document.getElementById("resultadoC");
+            resultadoElement.innerHTML = "O cubo de " + numero + " é " + cuboDoNumero;
+        }
+        function Celsius(numero) {
+            return (numero - 32) * 0.5556;
+        }
+
+        function calcularC() {
+            var numero = document.getElementById("numero1").value;
+            var GrauemC = Celsius(numero);
+            var resultadoElement = document.getElementById("resultadoG");
+            resultadoElement.innerHTML = " " + numero + " Fahrenheit Em Celsius é " + GrauemC;
+        }
+        function Area(comprimento, altura) {
+            return (comprimento * altura) / 2;
+        }
+
+        function calcularA() {
+            var comprimento = document.getElementById("comprimento").value;
+            var altura = document.getElementById("altura").value;
+            var areaT = Area(comprimento, altura);
+            var resultadoElement = document.getElementById("resultadoT");
+            resultadoElement.innerHTML = "A área do triângulo é de " + areaT;
+        }
+        function calcular() {
+            const raio = document.getElementById("raio").value;
+            const [area, perimetro] = calcularCirculo(raio);
+            const resultadosElement = document.getElementById("resultadosCi");
+            resultadosElement.innerHTML = `A área do círculo é: ${area}<br>O perímetro do círculo é: ${perimetro}`;
+        }
+
+        function calcularCirculo(raio) {
+            const area = Math.PI * Math.pow(raio, 2);
+            const perimetro = 2 * Math.PI * raio;
+            return [area, perimetro];
+        }
+        function desconto(valor) {
+            return valor * 0.05;
+        }
+
+        function calcularDesconto() {
+            var numero = document.getElementById("valor").value;
+            var valorDesconto = desconto(numero);
+            var resultadoElement = document.getElementById("resultadoD");
+            resultadoElement.innerHTML = "O valor do desconto é de " + valorDesconto + " R$";
+        }
+        function calcularIdade() {
+            var anoNascimento = document.getElementById("ano-nascimento").value;
+            var idade = new Date().getFullYear() - anoNascimento;
+            var resultadoElement = document.getElementById("resultadoI");
+            if (idade >= 18) {
+                resultadoElement.innerHTML = "Você é maior de idade";
+            } else {
+                resultadoElement.innerHTML = "Você é menor de idade";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header> Codigos JavaScript </header>
+    <div class="jv">
+        <h1>Calculadora de Cubo</h1>
+        <label for="numero">Digite um número:</label>
+        <input type="number" id="numero" name="numero">
+        <button onclick="calcularCubo()">Calcular Cubo</button>
+        <p id="resultadoC"></p>
+    </div>
+
+    <div class="jv">
+        <h1>Calculadora de Graus Celsius</h1>
+        <label for="numero">Digite um número:</label>
+        <input type="number" id="numero1" name="numero1">
+        <button onclick="calcularC()">Calcular Graus Celsius</button>
+        <p id="resultadoG"></p>
+    </div>
+    <div class="jv">
+    <h1>Calculadora de Área de Triângulo</h1>
+    <label for="comprimento">Digite um número para a base:</label>
+    <input type="number" id="comprimento" name="comprimento">
+    <label for="altura">Digite um número para a altura:</label>
+    <input type="number" id="altura" name="altura">
+    <button onclick="calcularA()">Calcular Área</button>
+    <p id="resultadoT"></p>
+    </div>
+    <div class="jv">
+        <h1>Cálculo de área e perímetro de um círculo</h1>
+        <form>
+            <label for="raio">Digite o raio do círculo:</label>
+            <input type="number" id="raio" name="raio">
+            <button type="button" onclick="calcular()">Calcular</button>
+        </form>
+        <div id="resultadosCi"></div>
+    </div>
+    <div class="jv">
+        <h1>Calcular desconto de 5%</h1>
+        <label for="numero">Digite um número:</label>
+        <input type="number" id="valor" name="valor">
+        <button onclick="calcularDesconto()">Calcular</button>
+        <p id="resultadoD"></p>
+    </div>
+    <div class="jv">
+        <h1>Calculadora de Idade</h1>
+        <label for="ano-nascimento">Digite o ano de seu nascimento:</label>
+        <input type="number" id="ano-nascimento" name="ano-nascimento">
+        <button onclick="calcularIdade()">Calcular idade</button>
+        <p id="resultadoI"></p>
+    </div>
+    <footer> É isso ai professores S2 </footer>
+</body>
+
+</html>
